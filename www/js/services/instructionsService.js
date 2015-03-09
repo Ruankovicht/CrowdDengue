@@ -4,7 +4,7 @@ angular.module('starter').factory('InstructionsService', [ function() {
 
   instructionsObj.instructions = {
     newLocations : {
-      text : 'To add a new location, tap and hold on the map',
+      text : 'Aperte e segure para fazer uma denúncia',
       seen : false
     }
   };

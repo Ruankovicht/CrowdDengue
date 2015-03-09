@@ -21,6 +21,11 @@ angular.module('starter', ['ionic', 'leaflet-directive', 'ngCordova', 'igTruncat
 
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
+        .state('login', {
+        url: "/login",
+        templateUrl: "templates/login.html",
+        controller: ''
+      })
 
       .state('app', {
         url: "/app",
@@ -38,6 +43,7 @@ angular.module('starter', ['ionic', 'leaflet-directive', 'ngCordova', 'igTruncat
         }
       })
 
-    $urlRouterProvider.otherwise('/app/map');
+
+    $urlRouterProvider.otherwise('/login');
 
   });

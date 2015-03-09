@@ -4,6 +4,7 @@ angular.module('starter').controller('MapController',
     '$stateParams',
     '$ionicModal',
     '$ionicPopup',
+    '$location',
     'LocationsService',
     'InstructionsService',
     function(
@@ -12,6 +13,7 @@ angular.module('starter').controller('MapController',
       $stateParams,
       $ionicModal,
       $ionicPopup,
+      $location,
       LocationsService,
       InstructionsService
       ) {
@@ -27,7 +29,7 @@ angular.module('starter').controller('MapController',
         if(!InstructionsService.instructions.newLocations.seen) {
 
           var instructionsPopup = $ionicPopup.alert({
-            title: 'Add Locations',
+            title: 'Combata a Dengue',
             template: InstructionsService.instructions.newLocations.text
           });
           instructionsPopup.then(function(res) {
@@ -102,7 +104,7 @@ angular.module('starter').controller('MapController',
         $scope.map.markers[locationKey] = {
           lat:location.lat,
           lng:location.lng,
-          message: location.name,
+          message: 'Denuncia em: ' + location.name,
           focus: true,
           draggable: false
         };
@@ -124,17 +126,16 @@ angular.module('starter').controller('MapController',
             $scope.map.markers.now = {
               lat:position.coords.latitude,
               lng:position.coords.longitude,
-              message: "You Are Here",
+              message: "Você Está Aqui",
               focus: true,
               draggable: false
             };
 
           }, function(err) {
             // error
-            console.log("Location error!");
+            console.log("Lugar Inexistente");
             console.log(err);
           });
 
       };
-
     }]);
