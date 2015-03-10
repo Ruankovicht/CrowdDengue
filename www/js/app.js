@@ -24,7 +24,7 @@ angular.module('starter', ['ionic', 'leaflet-directive', 'ngCordova', 'igTruncat
         .state('login', {
         url: "/login",
         templateUrl: "templates/login.html",
-        controller: ''
+        controller: 'LoginController'
       })
 
       .state('app', {

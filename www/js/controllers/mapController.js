@@ -1,4 +1,6 @@
-angular.module('starter').controller('MapController',
+angular.module('starter')
+
+.controller('MapController',
   [ '$scope',
     '$cordovaGeolocation',
     '$stateParams',
@@ -136,6 +138,37 @@ angular.module('starter').controller('MapController',
             console.log("Lugar Inexistente");
             console.log(err);
           });
-
       };
-    }]);
+    }])
+    
+    .controller('LoginController',
+  [ '$scope',
+    '$ionicPopup',
+    '$location',
+    '$http',
+    function(
+      $scope,
+      $ionicPopup,
+      $location,
+      $http
+      ) {
+	$scope.login = function(){
+		var login = document.getElementById('login').value;
+		var senha = document.getElementById('senha').value;
+		$http({
+                    method: 'GET',
+                    url: 'http://192.168.0.102:8080/RestWB/login/consultar?login='+login+"&senha="+senha}).
+                success(function (data, status) {
+							alert("sucesso: " + login + ' ' + senha);
+							window.location='#/app/map';
+                }).
+                error(function (data, status) {
+                    		alert("fracasso: " + login + ' ' + senha);
+                    		window.location='#/app/map';
+                }
+            );
+		}
+		
+}])
+    
+;
